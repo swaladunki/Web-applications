@@ -2,6 +2,8 @@
 
 A fully functional professional static website for Uncle Egg Rice Corner (ಅಂಕಲ್ ಎಗ್ ರೈಸ್ ಕಾರ್ನರ್), a popular Bengaluru street food brand.
 
+PATH to Edit in Future: /c/xampp/htdocs/Google_Map_Website/project
+
 ## Features
 
 - ✅ Fully responsive design (mobile, tablet, desktop)

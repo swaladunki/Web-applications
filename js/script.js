@@ -1,9 +1,9 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const navbar = document.getElementById('navbar');
     const mobileMenuToggle = document.getElementById('mobileMenuToggle');
     const navMenu = document.getElementById('navMenu');
 
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
         } else {
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     if (mobileMenuToggle) {
-        mobileMenuToggle.addEventListener('click', function() {
+        mobileMenuToggle.addEventListener('click', function () {
             navMenu.classList.toggle('active');
 
             const spans = mobileMenuToggle.querySelectorAll('span');
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const navLinks = document.querySelectorAll('.nav-menu a');
     navLinks.forEach(link => {
-        link.addEventListener('click', function() {
+        link.addEventListener('click', function () {
             if (navMenu.classList.contains('active')) {
                 navMenu.classList.remove('active');
 
@@ -47,69 +47,35 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('form-status');
 
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+        contactForm.addEventListener('submit', async function (event) {
+            event.preventDefault();
+            formStatus.textContent = 'Sending...';
 
             const formData = new FormData(contactForm);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const phone = formData.get('phone');
-            const message = formData.get('message');
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { Accept: 'application/json' }
+                });
 
-            const formSuccess = document.getElementById('formSuccess');
-            const formError = document.getElementById('formError');
-
-            formSuccess.style.display = 'none';
-            formError.style.display = 'none';
-
-            if (!name || !email || !message) {
-                formError.style.display = 'block';
-                return;
+                if (response.ok) {
+                    formStatus.textContent = 'Thanks! Your message was sent.';
+                    contactForm.reset();
+                } else {
+                    const data = await response.json();
+                    const err = data.errors
+                        ? data.errors.map(x => x.message).join(', ')
+                        : 'Submission failed';
+                    formStatus.textContent = 'Error: ' + err;
+                }
+            } catch (error) {
+                console.error(error);
+                formStatus.textContent = 'Error: could not send. Check network/console.';
             }
-
-            formSuccess.style.display = 'block';
-            contactForm.reset();
-
-            setTimeout(() => {
-                formSuccess.style.display = 'none';
-            }, 5000);
         });
     }
-
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
-    };
-
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-
-    const animatedElements = document.querySelectorAll('.highlight-card, .dish-card, .review-card, .feature-card, .menu-item');
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-    });
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
 });
