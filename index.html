@@ -1,16 +1,247 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Uncle Egg Rice Corner Static Website</title>
-    <meta property="og:image" content="https://bolt.new/static/og_default.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://bolt.new/static/og_default.png">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Uncle Egg Rice Corner is a famous Bengaluru street food spot serving spicy egg rice, egg chilli and omelette at affordable prices near PES College, Banashankari.">
+    <meta name="keywords"
+        content="egg rice bangalore, banashankari street food, best egg rice near PES college, uncle egg rice, bangalore street food, egg dishes bangalore">
+    <meta name="author" content="Uncle Egg Rice Corner">
+
+    <title>Best Egg Rice in Bangalore | Uncle Egg Rice Corner | ಅಂಕಲ್ ಎಗ್ ರೈಸ್ ಕಾರ್ನರ್</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "Uncle Egg Rice Corner",
+      "alternateName": "ಅಂಕಲ್ ಎಗ್ ರೈಸ್ ಕಾರ್ನರ್",
+      "image": "https://example.com/images/hero.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "30/8, 22nd Main Rd, near PES Degree College, Mysore Bank Colony, Nagendra Block",
+        "addressLocality": "Banashankari",
+        "addressRegion": "Karnataka",
+        "postalCode": "560050",
+        "addressCountry": "IN"
+      },
+      "telephone": "+919686208474",
+      "priceRange": "₹1 - ₹200",
+      "servesCuisine": "Street Food, Fast Food",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "3.5",
+        "reviewCount": "4168"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "16:30",
+        "closes": "22:30"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "12.9410",
+        "longitude": "77.5530"
+      }
+    }
+    </script>
 </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
-  </body>
+
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>Uncle Egg Rice Corner</h1>
+                <p class="logo-kannada">ಅಂಕಲ್ ಎಗ್ ರೈಸ್ ಕಾರ್ನರ್</p>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Bangalore's Most Famous Egg Rice Spot</h1>
+            <p class="hero-subtitle">ಬೆಂಗಳೂರಿನ ಅತ್ಯಂತ ಪ್ರಸಿದ್ಧ ಎಗ್ ರೈಸ್ ಸ್ಥಳ</p>
+            <div class="hero-buttons">
+                <a href="menu.html" class="btn btn-primary">View Menu</a>
+                <a href="https://maps.google.com/?q=WHR3+99+Bengaluru" target="_blank" class="btn btn-secondary">Get
+                    Directions</a>
+                <a href="tel:+919686208474" class="btn btn-accent">Call Now</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="highlights">
+        <div class="container">
+            <div class="highlight-cards">
+                <div class="highlight-card">
+                    <div class="highlight-icon">⭐</div>
+                    <h3>4168+ Reviews</h3>
+                    <p>Loved by thousands</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">🔥</div>
+                    <h3>Budget Friendly</h3>
+                    <p>₹1 - ₹200 per person</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">🍳</div>
+                    <h3>Signature Egg Rice</h3>
+                    <p>Famous street food</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="story">
+        <div class="container">
+            <h2 class="section-title">Our Story</h2>
+            <p class="section-subtitle">ನಮ್ಮ ಕಥೆ</p>
+            <div class="story-content">
+                <div class="story-text">
+                    <p>Welcome to Uncle Egg Rice Corner, Bangalore's beloved street food destination that has been
+                        serving delicious, spicy egg rice and authentic egg dishes for years. Located in the heart of
+                        Banashankari, near PES Degree College, we've become a legendary spot among students,
+                        office-goers, and street food lovers.</p>
+                    <p>What started as a humble street cart has grown into one of the most reviewed and loved street
+                        food spots in Bengaluru. Our secret? Simple, fresh ingredients, generous portions, and authentic
+                        street food flavors that remind you of home-cooked meals.</p>
+                    <p>Whether you're craving our signature spicy egg rice, crispy egg bonda, or flavorful egg chilli,
+                        we serve it hot, fresh, and with the warmth of traditional Bangalore street food culture.</p>
+                    <div class="story-features">
+                        <div class="feature">✓ Fresh ingredients daily</div>
+                        <div class="feature">✓ Quick service</div>
+                        <div class="feature">✓ Affordable pricing</div>
+                        <div class="feature">✓ Generous portions</div>
+                    </div>
+                </div>
+                <div class="story-image">
+                    <div class="placeholder-image">
+                        <p>🍳<br>Street Food<br>Legacy</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured-dishes">
+        <div class="container">
+            <h2 class="section-title">Popular Dishes</h2>
+            <p class="section-subtitle">ಜನಪ್ರಿಯ ಖಾದ್ಯಗಳು</p>
+            <div class="dishes-grid">
+                <div class="dish-card">
+                    <div class="dish-image">
+                        <div class="placeholder-dish">🍚</div>
+                    </div>
+                    <h3>Egg Rice</h3>
+                    <p>Our signature spicy egg rice</p>
+                </div>
+                <div class="dish-card">
+                    <div class="dish-image">
+                        <div class="placeholder-dish">🌶️</div>
+                    </div>
+                    <h3>Egg Chilli</h3>
+                    <p>Spicy and flavorful</p>
+                </div>
+                <div class="dish-card">
+                    <div class="dish-image">
+                        <div class="placeholder-dish">🍳</div>
+                    </div>
+                    <h3>Omelette</h3>
+                    <p>Classic street style</p>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="menu.html" class="btn btn-primary">View Full Menu</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="location-section">
+        <div class="container">
+            <h2 class="section-title">Visit Us</h2>
+            <p class="section-subtitle">ನಮ್ಮನ್ನು ಭೇಟಿ ಮಾಡಿ</p>
+            <div class="location-content">
+                <div class="location-info">
+                    <div class="info-item">
+                        <h3>📍 Address</h3>
+                        <p>30/8, 22nd Main Rd, near PES Degree College<br>
+                            Mysore Bank Colony, Nagendra Block<br>
+                            Banashankari 1st Stage, Banashankari<br>
+                            Bengaluru, Karnataka 560050</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>📞 Phone</h3>
+                        <p><a href="tel:+919686208474">09686208474</a></p>
+                    </div>
+                    <div class="info-item">
+                        <h3>🕐 Hours</h3>
+                        <p>Open Daily<br>4:30 PM – 10:30 PM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <a href="tel:+919686208474" class="floating-call-btn" title="Call Us">
+        📞
+    </a>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Uncle Egg Rice Corner</h3>
+                    <p class="footer-kannada">ಅಂಕಲ್ ಎಗ್ ರೈಸ್ ಕಾರ್ನರ್</p>
+                    <p>Bangalore's favorite street food destination</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Location</h4>
+                    <p>30/8, 22nd Main Rd<br>
+                        Banashankari 1st Stage<br>
+                        Bengaluru, Karnataka 560050</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Phone: <a href="tel:+919686208474">09686208474</a><br>
+                        Hours: 4:30 PM – 10:30 PM</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">📷</a>
+                        <a href="#" class="social-icon">▶️</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Uncle Egg Rice Corner. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
 </html>
