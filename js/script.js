@@ -72,8 +72,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
             console.log('Form submitted with:', { name, email, phone, message });
 
-            // Google Form URL
-            const googleFormURL = 'https://forms.gle/a6L5yGWnjDb2QTF8A';
+            // Google Form URL - Form Response Endpoint
+            const googleFormURL = 'https://docs.google.com/forms/d/e/1FAIpQLSeZq9eJE2F4Az3nNlSQuHbo_gnNT450ktOOJdQf_V6Nz0vIFQ/formResponse';
 
             // Create form data for Google Forms
             const googleFormData = new FormData();
@@ -87,16 +87,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 method: 'POST',
                 mode: 'no-cors',
                 body: googleFormData
-            }).then(() => {
-                console.log('Form submitted successfully');
-                document.getElementById('formSuccess').style.display = 'block';
+            }).then(response => {
+                console.log('Form submitted to Google Forms');
+                formSuccess.style.display = 'block';
                 contactForm.reset();
                 setTimeout(() => {
-                    document.getElementById('formSuccess').style.display = 'none';
+                    formSuccess.style.display = 'none';
                 }, 5000);
+                return response;
             }).catch((error) => {
                 console.error('Form submission error:', error);
-                document.getElementById('formError').style.display = 'block';
+                formError.style.display = 'block';
             });
         });
     } else {
