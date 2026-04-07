@@ -66,19 +66,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const formData = new FormData(contactForm);
             const name = formData.get('name');
-            const email = formData.get('_replyto');  // FIXED: HTML field is named '_replyto'
+            const email = formData.get('email');
+            const phone = formData.get('phone');
             const message = formData.get('message');
 
-            console.log('Form submitted with:', { name, email, message });
+            console.log('Form submitted with:', { name, email, phone, message });
 
-            // Google Form URL - Replace with your actual form ID
-            const googleFormURL = 'https://forms.gle/7RC3htoPmLFm4G7N6';
+            // Google Form URL
+            const googleFormURL = 'https://forms.gle/a6L5yGWnjDb2QTF8A';
 
-            // Create form data for Google Forms - Replace entry IDs with your actual IDs
+            // Create form data for Google Forms
             const googleFormData = new FormData();
-            googleFormData.append('entry.913038133', name);      // Replace with your Name entry ID
-            googleFormData.append('entry.1356796986', email);     // Replace with your Email entry ID
-            googleFormData.append('entry.718680108', message);   // Replace with your Message entry ID
+            googleFormData.append('entry.913038133', name);      // Name entry ID
+            googleFormData.append('entry.1356796986', email);     // Email entry ID
+            googleFormData.append('entry.958109579', phone);      // Phone entry ID
+            googleFormData.append('entry.718680108', message);   // Message entry ID
 
             // Submit to Google Forms
             fetch(googleFormURL, {
