@@ -51,41 +51,51 @@ document.addEventListener('DOMContentLoaded', function () {
     const formSuccess = document.getElementById('formSuccess');
     const formError = document.getElementById('formError');
 
+    console.log('Form found:', !!contactForm);
+    console.log('Form status found:', !!formStatus);
+    console.log('Form success found:', !!formSuccess);
+    console.log('Form error found:', !!formError);
+
     if (contactForm) {
-        contactForm.addEventListener('submit', async function (event) {
-            event.preventDefault();
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
 
             // Hide previous messages
             formSuccess.style.display = 'none';
             formError.style.display = 'none';
-            formStatus.textContent = 'Sending...';
 
             const formData = new FormData(contactForm);
-            try {
-                const response = await fetch(contactForm.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: { Accept: 'application/json' }
-                });
+            const name = formData.get('name');
+            const email = formData.get('_replyto');  // FIXED: HTML field is named '_replyto'
+            const message = formData.get('message');
 
-                if (response.ok) {
-                    formStatus.textContent = '';
-                    formSuccess.style.display = 'block';
-                    contactForm.reset();
-                    setTimeout(() => {
-                        formSuccess.style.display = 'none';
-                    }, 5000);
-                } else {
-                    const data = await response.json();
-                    const err = data.errors
-                        ? data.errors.map(x => x.message).join(', ')
-                        : 'Submission failed';
-                    formStatus.textContent = 'Error: ' + err;
-                }
-            } catch (error) {
-                console.error(error);
-                formStatus.textContent = 'Error: could not send. Check network/console.';
-            }
+            console.log('Form submitted with:', { name, email, message });
+
+            // Google Form URL - Replace with your actual form ID
+            const googleFormURL = 'https://forms.gle/7RC3htoPmLFm4G7N6';
+
+            // Create form data for Google Forms - Replace entry IDs with your actual IDs
+            const googleFormData = new FormData();
+            googleFormData.append('entry.913038133', name);      // Replace with your Name entry ID
+            googleFormData.append('entry.1356796986', email);     // Replace with your Email entry ID
+            googleFormData.append('entry.718680108', message);   // Replace with your Message entry ID
+
+            // Submit to Google Forms
+            fetch(googleFormURL, {
+                method: 'POST',
+                mode: 'no-cors',
+                body: googleFormData
+            }).then(() => {
+                console.log('Form submitted successfully');
+                document.getElementById('formSuccess').style.display = 'block';
+                contactForm.reset();
+                setTimeout(() => {
+                    document.getElementById('formSuccess').style.display = 'none';
+                }, 5000);
+            }).catch((error) => {
+                console.error('Form submission error:', error);
+                document.getElementById('formError').style.display = 'block';
+            });
         });
     } else {
         console.error('Contact form not found!');
