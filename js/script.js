@@ -78,4 +78,41 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(contactForm);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const phone = formData.get('phone');
+            const message = formData.get('message');
+
+            // Google Form URL - Replace with your actual form ID
+            const googleFormURL = 'https://forms.gle/7RC3htoPmLFm4G7N6';
+
+            // Create form data for Google Forms - Replace entry IDs with your actual IDs
+            const googleFormData = new FormData();
+            googleFormData.append('entry.913038133', name);      // Replace with your Name entry ID
+            googleFormData.append('entry.1356796986', email);     // Replace with your Email entry ID
+            googleFormData.append('entry.958109579', phone);     // Replace with your Phone entry ID
+            googleFormData.append('entry.718680108', message);   // Replace with your Message entry ID
+
+            // Submit to Google Forms
+            fetch(googleFormURL, {
+                method: 'POST',
+                mode: 'no-cors',
+                body: googleFormData
+            }).then(() => {
+                document.getElementById('formSuccess').style.display = 'block';
+                contactForm.reset();
+                setTimeout(() => {
+                    document.getElementById('formSuccess').style.display = 'none';
+                }, 5000);
+            }).catch(() => {
+                document.getElementById('formError').style.display = 'block';
+            });
+        });
+    }
 });

@@ -116,14 +116,14 @@ if (contactForm) {
         const message = formData.get('message');
 
         // Google Form URL - Replace with your actual form ID
-        const googleFormURL = 'https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse';
+        const googleFormURL = 'https://forms.gle/7RC3htoPmLFm4G7N6';
 
         // Create form data for Google Forms - Replace entry IDs with your actual IDs
         const googleFormData = new FormData();
-        googleFormData.append('entry.123456789', name);      // Replace with your Name entry ID
-        googleFormData.append('entry.987654321', email);     // Replace with your Email entry ID
-        googleFormData.append('entry.555555555', phone);     // Replace with your Phone entry ID
-        googleFormData.append('entry.777777777', message);   // Replace with your Message entry ID
+        googleFormData.append('entry.913038133', name);      // Replace with your Name entry ID
+        googleFormData.append('entry.1356796986', email);     // Replace with your Email entry ID
+        googleFormData.append('entry.958109579', phone);     // Replace with your Phone entry ID
+        googleFormData.append('entry.718680108', message);   // Replace with your Message entry ID
 
         // Submit to Google Forms
         fetch(googleFormURL, {
